@@ -38,5 +38,11 @@ if test -e "$HOMEBREW_PREFIX/share/fish/completions"
     set --append fish_complete_path "$HOMEBREW_PREFIX/share/fish/completions"
 end
 
+# Command not found handler
+set HOMEBREW_COMMAND_NOT_FOUND_HANDLER "$HOMEBREW_REPOSITORY/Library/Homebrew/command-not-found/handler.fish"
+if test -f $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
+    source $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
+end
+
 # Other homebrew vars.
 set -q HOMEBREW_NO_ANALYTICS || set -gx HOMEBREW_NO_ANALYTICS 1
